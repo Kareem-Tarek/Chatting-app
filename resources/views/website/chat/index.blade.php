@@ -56,7 +56,7 @@
             </div>
         </div>
 
-        <div class="col-md-9">
+        <div class="col-md-9 mt-5 mt-md-0">
             <div class="card shadow">
                 <div class="card-header fw-semibold h5" id="chat-header">Select a User to Chat</div>
                 <div class="card-body" id="messages" style="height: 400px; overflow-y: auto;">
@@ -162,7 +162,7 @@ $(document).ready(function () {
             }
         });
     }
-    // Poll for new messages every 5 seconds
+    // Poll for new messages every 1 second
     setInterval(fetchMessages, 1000);
 
     //--------------------> Append message with correct checkmark
@@ -241,7 +241,7 @@ $(document).ready(function () {
     // Initial fetch for unseen counts on page load
     fetchUnseenCounts();
 
-    // Poll unseen counts for all users every 5 seconds
+    // Poll unseen counts for all users every 2 seconds
     setInterval(fetchUnseenCounts, 2000);
 });
 </script>

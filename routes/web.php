@@ -18,7 +18,7 @@ Route::middleware('auth')
     Route::post('/send', [ChatController::class, 'send'])->name('send');
     Route::get('/messages', [ChatController::class, 'fetchMessages'])->name('fetchMessages');
     Route::post('/mark-seen', [ChatController::class, 'markAsSeen'])->name('markAsSeen');
-    Route::get('/chat/unseen-counts', [ChatController::class, 'fetchUnseenCounts'])->name('unseen-counts');
+    Route::get('/unseen-counts', [ChatController::class, 'fetchUnseenCounts'])->name('unseen-counts');
     Route::patch('/update/{id}', [ChatController::class, 'update'])->name('update');
     Route::delete('/delete/{id}', [ChatController::class, 'destroy'])->name('destroy');
 });

@@ -44,12 +44,17 @@
                             id="user-{{ $user->id }}">
                                 {{ $user->name }}
                                 @php
-                                    $countUnseenMsg = \App\Models\Message::where('sender_id', $user->id)->where('seen', false)->count();
+                                    $countUnseenMsg = \App\Models\Message::where('sender_id', $user->id)
+                                                    ->where('receiver_id', Auth::id())
+                                                    ->where('seen', false)
+                                                    ->count();
                                 @endphp
-                                <span class="{{ $countUnseenMsg > 0 ? 'badge bg-secondary' : ''  }} float-end unseen-count"
-                                    id="unseen-{{ $user->id }}">
-                                    {{ $countUnseenMsg == 0 ? '' : $countUnseenMsg  }}
-                                </span>
+                                @if($countUnseenMsg > 0)
+                                    <span class="badge bg-secondary float-end unseen-count"
+                                        id="unseen-{{ $user->id }}">
+                                        {{ $countUnseenMsg }}
+                                    </span>
+                                @endif
                         </li>
                     @endforeach
                 </ul>
